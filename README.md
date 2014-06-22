@@ -54,13 +54,13 @@ require('smodel')
 #### Model.js
 ```javascript
 require('smodel').$model(model, [
-      'Model/Group',
-      'Model/Contact'
-  ]);
+    'Model/Group',
+    'Model/Contact'
+]);
 
 ```
 
-#### Module/Model/Group.js
+#### Modules/Model/Group.js
 
 ```javascript
   require('smodel').$class(module, 'Group') // collection name set to GroupCollection & scope to public
@@ -70,7 +70,7 @@ require('smodel').$model(model, [
       .$attr('contacts', 'Contacts') // will create a relatedEntities attribute once Contacts is found
 ```
 
-#### Module/Model/Contact.js
+#### Modules/Model/Contact.js
 
 ```javascript
   require('smodel').$class(module, 'Contact', 'Contacts', 'private') // custom collection name & scope private
@@ -86,12 +86,12 @@ require('smodel').$model(model, [
 ### Multi-file model - Multifile DataClass 
 
 
-#### Module/Model/Group/index.js
+#### Modules/Model/Group/index.js
 ```javascript
 require('smodel').$class(module, 'Group') // collection name set to GroupCollection & scope to public
-// thanks to module.id, attributes defined in modules from the same folder
+// thanks to module.id, attributes defined in modules from the same folder are assigned to the dataClass
 ```
-#### Module/Model/Group/name.js
+#### Modules/Model/Group/name.js
 ```javascript
 var NB_MS_IN_YEAR = 1000 * 60 * 60 * 24 * 365.25;
 

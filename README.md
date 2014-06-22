@@ -12,6 +12,7 @@ Directions of this API:
 * optimized for CommonJS modules
 * lighter model files and faster to write
 * intuitive and easy to understand
+* provide almost all the Wakanda Model Designer automatic mechanisms
 * even more Business Logic oriented
 
 Additional future goals
@@ -19,19 +20,89 @@ Additional future goals
 * add/retrieve semantic informations
 * add/retrieve informations currently not accessible via the Model API (extraProperties, global access)
 
-## Example
+## Experimental Expected API
 
 **Note that the API is not definitive**
+
+### Mono-file model
 
 ```javascript
 
 require('smodel')
-  .$class(module, 'Contact', 'Contacts', 'public'),
+  .$model(model)
 
-  .$primary('ID'), // default: uuid / mandatory / auto-generate 
-  .$attr('name'), // default: storage / string
-  .$attr('mobile'), // default: storage / string
-  .$attr('group', 'Group'), // Group is a DataClass singular name -> relatedEntity / Group / Group
-  .$attr('groupName', 'group.name') // 'group.name' include a '.' and start by an attribute -> alias
+    .$class('Group') // collection name set to GroupCollection & scope to public
+
+      // an attribute named 'ID' of type uuid is created by default as primary key
+      .$attr('name') // default: storage / string
+      .$attr('contacts', 'Contacts') // will create a relatedEntities attribute once Contacts is found
+
+    .$class('Contact', 'Contacts', 'private') // custom collection name & scope private
+
+      .$primary('email', 'string') // a custom primary key attribute is created
+      .$attr('name') // default: storage / string
+      .$attr('mobile', 'string', {pattern: PHONE_REGEX}) // apply a pattern for expected values
+      // an attribute named 'group' (default name based on class name) as automatically been created by 
+      // the contact relationship with kind relatedEntity and className Group
+      .$attr('groupName', 'group.name') // 'group.name' include a '.' and start by an attribute name -> alias
+ 
+```
+
+
+### Multi-file model - 1 file per DataClass
+
+#### Model.js
+```javascript
+require('smodel').$model(model, [
+      'Model/Group',
+      'Model/Contact'
+  ]);
 
 ```
+
+#### Module/Model/Group.js
+
+```javascript
+  require('smodel').$class(module, 'Group') // collection name set to GroupCollection & scope to public
+
+      // an attribute named 'ID' of type uuid is created by default as primary key
+      .$attr('name') // default: storage / string
+      .$attr('contacts', 'Contacts') // will create a relatedEntities attribute once Contacts is found
+```
+
+#### Module/Model/Contact.js
+
+```javascript
+  require('smodel').$class(module, 'Contact', 'Contacts', 'private') // custom collection name & scope private
+
+      .$primary('email', 'string') // a custom primary key attribute is created
+      .$attr('name') // default: storage / string
+      .$attr('mobile', 'string', {pattern: PHONE_REGEX}) // apply a pattern for expected values
+      .$attr('group', 'Group') // relatedEntity explicitely created for better understanding
+      .$attr('groupName', 'group.name') // 'group.name' include a '.' and start by an attribute name -> alias
+ 
+```
+
+### Multi-file model - Multifile DataClass 
+
+
+#### Module/Model/Group/index.js
+```javascript
+require('smodel').$class(module, 'Group') // collection name set to GroupCollection & scope to public
+// thanks to module.id, attributes defined in modules from the same folder
+```
+#### Module/Model/Group/name.js
+```javascript
+var NB_MS_IN_YEAR = 1000 * 60 * 60 * 24 * 365.25;
+
+// calculated attribute
+require('smodel').$attr('age', '@number', {
+    get: function get(){
+        return Math.floor((Date.now() - this.birthdate.getTime()) / NB_MS_IN_YEAR);
+    },
+    sort: function sort(order) {
+        order = order || 'asc';
+        order = order === 'asc' ? 'desc' : 'asc';
+        return 'birthdate ' + order;
+    }
+}) 

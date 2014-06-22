@@ -1,4 +1,4 @@
-# Wakanda SmartClass
+# Wakanda SmartModel
 
 **EXPERIMENTAL**
 

@@ -1,15 +1,16 @@
 {
   "name": "smodel",
-  "description": "Smart Wakanda Model API",
   "version": "0.0.1",
+  "description": "Smart Wakanda Model API",
+  "keywords": ["NoSQL", "Wakanda", "Server-Side JavaScript", "Model"],
+  "author": "Alexandre Morgaut <Alexandre.Morgaut@gmail.com> (http://github.com/AMorgaut)",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/AMorgaut/smodel.git"
   },
-  "author": "Alexandre Morgaut <Alexandre.Morgaut@gmail.com> (http://github.com/AMorgaut)",
   "main": "./index.js",
   "engines": {
     "wakanda": "8.*"
-  },
-  "license": "MIT"
+  }
 }

@@ -1,4 +1,6 @@
-﻿var assert = require('assert');
+﻿var logs;
+
+var assert = require('assert');
 var smodel = require('smodel');
 
 
@@ -21,5 +23,5 @@ exports['test SmartModel has a $class() method'] = function () {
 // AUTORUN
 if (require.main === module) {
     require('test').run(exports);
-    console.content;
+    logs = console.content;
 }

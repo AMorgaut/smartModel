@@ -1,4 +1,6 @@
-﻿var assert = require('assert');
+﻿var logs;
+
+var assert = require('assert');
 var smodel = require('smodel');
 
 
@@ -30,6 +32,7 @@ exports['test SmartAttribute $attr() default scope is public'] = function () {
     assert.ok(smodel.$attr(module, 'name').attribute.scope === 'public');
 };
 
+
 /*
   .$primary('ID'), // default: uuid / mandatory / auto-generate 
   .$attr('name'), // default: storage / string
@@ -39,9 +42,8 @@ exports['test SmartAttribute $attr() default scope is public'] = function () {
 */
 
 
-
 // AUTORUN
 if (require.main === module) {
     require('test').run(exports);
-    console.content;
+    logs = console.content;
 }

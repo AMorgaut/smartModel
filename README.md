@@ -52,12 +52,24 @@ require('smodel')
 ### Multi-file model - 1 file per DataClass
 
 #### Model.js
+To load indivudual DataClasses
 ```javascript
 require('smodel').$model(model, [
     'Model/Group',
     'Model/Contact'
 ]);
 
+```
+Or, to load all DataClasses from a folder
+```javascript
+require('smodel').$model(model, ['Model']);
+
+```
+
+#### Modules/Model/index.js
+OPTIONNAL (Only to be able to automatically load all DataClasses of the folder)
+```javascript
+  require('smodel').$classes(module); 
 ```
 
 #### Modules/Model/Group.js

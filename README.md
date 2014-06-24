@@ -96,7 +96,7 @@ require('smodel').$class(module, 'Group') // collection name set to GroupCollect
 var NB_MS_IN_YEAR = 1000 * 60 * 60 * 24 * 365.25;
 
 // calculated attribute
-require('smodel').$attr('age', '@number', {
+require('smodel').$attr(module, 'age', '@number', {
     get: function get(){
         return Math.floor((Date.now() - this.birthdate.getTime()) / NB_MS_IN_YEAR);
     },

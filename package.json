@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git://github.com/AMorgaut/smodel.git"
   },
-  "main": "./index.js",
+  "main": "./lib/index.js",
   "engines": {
     "wakanda": "8.*"
   }

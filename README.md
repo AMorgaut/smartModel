@@ -28,7 +28,7 @@ Additional future goals
 
 ```javascript
 
-require('smodel')
+require('smartModel')
   .$model(model)
 
     .$class('Group') // collection name set to GroupCollection & scope to public
@@ -54,7 +54,7 @@ require('smodel')
 #### Model.js
 To load indivudual DataClasses
 ```javascript
-require('smodel').$model(model, [
+require('smartModel').$model(model, [
     'Model/Group',
     'Model/Contact'
 ]);
@@ -62,20 +62,20 @@ require('smodel').$model(model, [
 ```
 Or, to load all DataClasses from a folder
 ```javascript
-require('smodel').$model(model, ['Model']);
+require('smartModel').$model(model, ['Model']);
 
 ```
 
 #### Modules/Model/index.js
 OPTIONNAL (Only to be able to automatically load all DataClasses of the folder)
 ```javascript
-  require('smodel').$classes(module); 
+  require('smartModel').$classes(module); 
 ```
 
 #### Modules/Model/Group.js
 
 ```javascript
-  require('smodel').$class(module, 'Group') // collection name set to GroupCollection & scope to public
+  require('smartModel').$class(module, 'Group') // collection name set to GroupCollection & scope to public
 
       // an attribute named 'ID' of type uuid is created by default as primary key
       .$attr('name') // default: storage / string
@@ -85,7 +85,7 @@ OPTIONNAL (Only to be able to automatically load all DataClasses of the folder)
 #### Modules/Model/Contact.js
 
 ```javascript
-  require('smodel').$class(module, 'Contact', 'Contacts', 'private') // custom collection name & scope private
+  require('smartModel').$class(module, 'Contact', 'Contacts', 'private') // custom collection name & scope private
 
       .$primary('email', 'string') // a custom primary key attribute is created
       .$attr('name') // default: storage / string
@@ -108,7 +108,7 @@ require('smodel').$class(module, 'Group') // collection name set to GroupCollect
 var NB_MS_IN_YEAR = 1000 * 60 * 60 * 24 * 365.25;
 
 // calculated attribute
-require('smodel').$attr(module, 'age', '@number', {
+require('smartModel').$attr(module, 'age', '@number', {
     get: function get(){
         return Math.floor((Date.now() - this.birthdate.getTime()) / NB_MS_IN_YEAR);
     },

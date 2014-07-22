@@ -1,7 +1,7 @@
 ﻿var logs;
 
 var assert = require('assert');
-var smodel = require('smodel');
+var smodel = require('smartModel');
 
 exports['test smodel has a $class() method'] = function () {
     var module = {exports: {}};

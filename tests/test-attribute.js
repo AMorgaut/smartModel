@@ -1,7 +1,7 @@
 ﻿var logs;
 
 var assert = require('assert');
-var smodel = require('smodel');
+var smodel = require('smartModel');
 
 
 exports['test $attr() return SmartAttribute instance'] = function () {

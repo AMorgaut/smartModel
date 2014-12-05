@@ -118,3 +118,36 @@ require('smartModel').$attr(module, 'age', '@number', {
         return 'birthdate ' + order;
     }
 }) 
+```
+
+## How to Contribute?
+
+To succed, such project shouldn't/couldn't be a one man project, it clearly has to be community driven.
+
+### Understanding the context
+
+To get an overview of how we work with modules today for Wakanda Model, and to help you understand how the code of this project is structured, I invite you to read this [CommonJS in Model.js forum discussion](http://forum.wakanda.org/showthread.php?6980-CommonJS-using-export-a-mistake-for-use-in-Model.js)
+
+### Model-Driven / Test-Driven Development
+
+I'm not yet the best guy to follow this best practice but I'm really working on it and feel such project need it to enhance its chance to reach a good enough quality level. The Model is the core of your app, libraries impacting it should be the most reliable possible.
+
+The proposed process of this project is to:
+- first propose an API sample via an issue (for those cotributing at the API Design level)
+- then, if we agree on it, eve for experimentation, we create a dedicated branch
+- then we write matching unit tests including all the code samples from the proposal
+- then we publish the API sample doc tagged as experimental + its unit tests
+- then write the implementation of the feature
+- then once stable, propose the feature for approval
+- if approved, merge the feature in the main branch and tag a version
+ 
+I don't care if you experiment things differently at home for this project, but pull resquests will only be accepted in this order
+
+### Code Conventions
+
+As for any Open Source project, try to respect the current code conventions for your pull-requests.
+To prevent the project from some potential troll discussion, beware I will always be open for discussions on that topic by mail or in a potential dedicated issue, but non conforming pull-request will never accepted as is, convention migration if one comes, requires to be in dedicated pull-requests that don't add any feature or fix any bug.
+
+### Current contributions status
+
+Another Wakanda Team member has already done a fork and made more parts of the proposed API work, and then more unit tests pass. I hope he will be abble to shortly make a first pull-request ;-)

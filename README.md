@@ -1,12 +1,14 @@
 # Wakanda SmartModel
 
-**EXPERIMENTAL**
+[![MIT Licensed](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](#license)
 
-## About
+*Wakanda® and 4D® are registered trademarks of 4D SAS in France and/or other countries. All other names mentioned may be trademarks or registered trademarks of their respective owners.*
 
-This project is an attempt to get a smarter SSJS API to define Wakanda Datastore Models
+## EXPERIMENTAL
 
-Directions of this API:
+This project is an attempt to get a smarter SSJS API to define[Wakanda](http://wakanda.org) Datastore Models
+
+### Directions of this API:
 
 * more jQuery/Angular like
 * optimized for CommonJS modules
@@ -15,10 +17,15 @@ Directions of this API:
 * provide almost all the Wakanda Model Designer automatic mechanisms
 * even more Business Logic oriented
 
-Additional future goals
+### Additional future goals
 
 * add/retrieve semantic informations
 * add/retrieve informations currently not accessible via the Model API (extraProperties, global access)
+
+### Ultimate Goal
+
+Propose it as a new default official API?
+:-)
 
 ## Experimental Expected API
 
@@ -151,3 +158,15 @@ To prevent the project from some potential troll discussion, beware I will alway
 ### Current contributions status
 
 Another Wakanda Team member has already done a fork and made more parts of the proposed API work, and then more unit tests pass. I hope he will be abble to shortly make a first pull-request ;-)
+
+## License
+
+*The MIT License*
+
+Copyright (c) 2014 Alexandre Morgaut. 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
